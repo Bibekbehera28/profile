@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibek Behera | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --bg: #f8fafc;
+      --text: #1e293b;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --accent-glow: rgba(37, 99, 235, 0.1);
+    }
+
+    /* Simple Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --text: #f1f5f9;
+        --card-bg: #1e293b;
+        --border: #334155;
+        --accent-glow: rgba(59, 130, 246, 0.2);
+      }
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 40px 20px;
+      transition: background 0.3s ease;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      margin: 0;
+      color: var(--primary);
+      letter-spacing: -2px;
+    }
+
+    .contact-info {
+      margin-top: 10px;
+      color: #64748b;
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      padding: 8px 20px;
+      text-decoration: none;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px var(--accent-glow);
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hover Effect: Card Lift & Glow */
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--primary);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.3rem;
+    }
+
+    .details {
+      display: block;
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-glow);
+      color: var(--primary);
+      padding: 5px 15px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-tag {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .skill-tag:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    li { margin-bottom: 8px; }
+
+    footer {
+      text-align: center;
+      margin-top: 100px;
+      padding-bottom: 40px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.5rem; }
+      .social-links a { display: block; margin: 10px auto; width: fit-content; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Bibek Behera</h1>
+      <div class="contact-info">
+        <p>Hyderabad | 8688671137</p>
+        <p>Bibekbehera283@gmail.com</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/bibek-behera45/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/Bibekbehera28" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Education</h2>
+      <div class="card">
+        <h3>Institute of Aeronautical Engineering, Hyderabad</h3>
+        <span class="details">B.Tech in Computer Science and Engineering | 2023 – 2027</span>
+        <span class="badge">CGPA: 8.78</span>
+      </div>
+      <div class="card">
+        <h3>Narayana Junior College</h3>
+        <span class="details">Intermediate (MPC) | May 2023</span>
+        <span class="badge">CGPA: 9.34</span>
+      </div>
+      <div class="card">
+        <h3>Good Will High School (SSC)</h3>
+        <span class="details">SSC | Aug 2021</span>
+        <span class="badge">CGPA: 10.0</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Internships</h2>
+      <div class="card">
+        <h3>Full Stack Internship | Octacomm Technologies Pvt Ltd</h3>
+        <span class="details">May 2024</span>
+        <ul>
+          <li>Worked on "Patient-Centric Healthcare Appointment Manager" focusing on appointment booking.</li>
+          <li>Developed responsive UI, backend APIs, and database integration using Node.js and MongoDB.</li>
+        </ul>
+        <div class="skills-container">
+          <span class="skill-tag">HTML</span> <span class="skill-tag">CSS</span> 
+          <span class="skill-tag">JavaScript</span> <span class="skill-tag">Node.js</span> <span class="skill-tag">MongoDB</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Deep Learning Internship | MSME (CITD)</h3>
+        <span class="details">May 2025</span>
+        <ul>
+          <li>Hands-on experience with Neural Networks, CNNs, and Backpropagation.</li>
+          <li>Built real-time applications and trained models using Python and TensorFlow.</li>
+        </ul>
+        <div class="skills-container">
+          <span class="skill-tag">Python</span> <span class="skill-tag">TensorFlow</span> 
+          <span class="skill-tag">Keras</span> <span class="skill-tag">NumPy</span> <span class="skill-tag">Matplotlib</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>iNotebook</h3>
+        <span class="details">React.js, Node.js, MongoDB, Express.js</span>
+        <p>A full-stack note-taking application featuring JWT authentication and secure MVC architecture for scalability.</p>
+      </div>
+      <div class="card">
+        <h3>Netflix Clone</h3>
+        <span class="details">HTML, CSS</span>
+        <p>A high-fidelity static clone of the Netflix homepage focusing on responsive grids and smooth user interface design.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills & Accomplishments</h2>
+      <div class="card">
+        <h3>Technical Expertise</h3>
+        <div class="skills-container" style="margin-top:15px;">
+          <span class="skill-tag">Python</span> <span class="skill-tag">Java</span> 
+          <span class="skill-tag">SQL</span> <span class="skill-tag">React</span> 
+          <span class="skill-tag">Git</span> <span class="skill-tag">Salesforce</span> 
+          <span class="skill-tag">DSA</span>
+        </div>
+        <ul style="margin-top:20px;">
+          <li><strong>Adobe Hackathon 2025:</strong> National-level participant.</li>
+          <li><strong>Problem Solving:</strong> Solved 100+ problems on Leetcode and HackerRank.</li>
+          <li><strong>Certifications:</strong> Python Silver (4-Star) & SQL Bronze (1-Star).</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Bibek Behera | Built with Passion</p>
+    </footer>
+  </div>
+
+</body>
+</html>
