@@ -4,191 +4,183 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bibek Behera | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #2563eb;
-      --secondary: #1e40af;
-      --bg: #f8fafc;
-      --text: #1e293b;
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
-      --accent-glow: rgba(37, 99, 235, 0.1);
+      --primary-blue: #2563eb;
+      --deep-blue: #1e3a8a;
+      --light-blue: #eff6ff;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+      --white: #ffffff;
+      --bg-subtle: #f8fafc;
     }
 
-    /* Simple Dark Mode Support */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f172a;
-        --text: #f1f5f9;
-        --card-bg: #1e293b;
-        --border: #334155;
-        --accent-glow: rgba(59, 130, 246, 0.2);
-      }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-subtle);
+      color: var(--text-dark);
       line-height: 1.6;
-      margin: 0;
-      padding: 40px 20px;
-      transition: background 0.3s ease;
     }
 
     .container {
-      max-width: 850px;
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 40px 20px;
     }
 
+    /* --- Clean Header --- */
     header {
-      text-align: center;
-      margin-bottom: 50px;
-      animation: fadeInDown 0.8s ease-out;
+      background: var(--white);
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
-    header h1 {
-      font-size: 3.2rem;
-      margin: 0;
-      color: var(--primary);
-      letter-spacing: -2px;
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -1.5px;
+      margin-bottom: 10px;
     }
 
-    .contact-info {
-      margin-top: 10px;
-      color: #64748b;
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .social-links {
-      margin-top: 20px;
-    }
-
-    .social-links a {
-      margin: 0 10px;
-      padding: 8px 20px;
+    /* Removing default blue from links */
+    .contact-links a, .contact-links span {
       text-decoration: none;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-      border-radius: 30px;
+      color: var(--text-dark); /* Same as other text */
       font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.9rem;
+      transition: color 0.2s;
     }
 
-    .social-links a:hover {
-      background: var(--primary);
-      color: white;
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px var(--accent-glow);
+    .contact-links a:hover {
+      color: var(--primary-blue);
     }
 
-    h2 {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--primary);
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 10px;
-      margin-top: 50px;
+    /* --- Pattern: Bento Grid --- */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
     .card {
-      background: var(--card-bg);
-      padding: 25px;
-      margin-bottom: 20px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
+      background: var(--white);
+      padding: 30px;
+      border-radius: 24px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
     }
 
-    /* Hover Effect: Card Lift & Glow */
     .card:hover {
-      transform: translateY(-6px);
-      border-color: var(--primary);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+      border-color: var(--primary-blue);
     }
 
-    .card::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; width: 4px; height: 100%;
-      background: var(--primary);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
+    .edu-card { grid-column: span 2; }
+    .exp-card { grid-column: span 3; }
+    .full-width { grid-column: span 3; }
 
-    .card:hover::after {
-      opacity: 1;
+    h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary-blue);
+      margin-bottom: 25px;
     }
 
     h3 {
-      margin: 0 0 8px 0;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
+      color: var(--text-dark);
+      margin-bottom: 5px;
     }
 
-    .details {
+    .subtitle {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      font-weight: 600;
       display: block;
-      color: #64748b;
-      font-size: 0.95rem;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .badge {
-      display: inline-block;
-      background: var(--accent-glow);
-      color: var(--primary);
-      padding: 5px 15px;
-      border-radius: 8px;
-      font-weight: 700;
+      background: var(--light-blue);
+      color: var(--primary-blue);
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-weight: 800;
       font-size: 0.85rem;
     }
 
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .skill-tag {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 8px 16px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      transition: all 0.3s;
-    }
-
-    .skill-tag:hover {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
+    p, li {
+      font-size: 0.95rem;
+      color: var(--text-light);
     }
 
     ul {
-      padding-left: 20px;
-      margin: 10px 0;
+      list-style: none;
+      margin-top: 10px;
     }
 
-    li { margin-bottom: 8px; }
+    li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      background: #f1f5f9;
+      color: var(--text-dark);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
 
     footer {
       text-align: center;
-      margin-top: 100px;
-      padding-bottom: 40px;
-      font-size: 0.9rem;
-      color: #94a3b8;
+      padding: 60px 0;
+      color: var(--text-light);
+      font-size: 0.85rem;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 2.5rem; }
-      .social-links a { display: block; margin: 10px auto; width: fit-content; }
+    @media (max-width: 850px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .edu-card, .exp-card, .full-width { grid-column: span 1; }
+      header { flex-direction: column; }
     }
   </style>
 </head>
@@ -196,99 +188,117 @@
 
   <div class="container">
     <header>
-      <h1>Bibek Behera</h1>
-      <div class="contact-info">
-        <p>Hyderabad | 8688671137</p>
-        <p>Bibekbehera283@gmail.com</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/bibek-behera45/" target="_blank">LinkedIn</a>
+      <div class="hero-text">
+        <h1>Bibek Behera</h1>
+        <div class="contact-links">
+          <span>📍 Hyderabad</span>
+          <span>📞 8688671137</span>
+          <a href="mailto:Bibekbehera283@gmail.com">Bibekbehera283@gmail.com</a>
           <a href="https://github.com/Bibekbehera28" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/bibek-behera45/" target="_blank">LinkedIn</a>
         </div>
       </div>
+      <div class="badge">CURRENT CGPA: 8.64</div>
     </header>
 
-    <section>
-      <h2>Education</h2>
-      <div class="card">
-        <h3>Institute of Aeronautical Engineering, Hyderabad</h3>
-        <span class="details">B.Tech in Computer Science and Engineering | 2023 – 2027</span>
-        <span class="badge">CGPA: 8.78</span>
-      </div>
-      <div class="card">
-        <h3>Narayana Junior College</h3>
-        <span class="details">Intermediate (MPC) | May 2023</span>
-        <span class="badge">CGPA: 9.34</span>
-      </div>
-      <div class="card">
-        <h3>Good Will High School (SSC)</h3>
-        <span class="details">SSC | Aug 2021</span>
-        <span class="badge">CGPA: 10.0</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Internships</h2>
-      <div class="card">
-        <h3>Full Stack Internship | Octacomm Technologies Pvt Ltd</h3>
-        <span class="details">May 2024</span>
-        <ul>
-          <li>Worked on "Patient-Centric Healthcare Appointment Manager" focusing on appointment booking.</li>
-          <li>Developed responsive UI, backend APIs, and database integration using Node.js and MongoDB.</li>
-        </ul>
-        <div class="skills-container">
-          <span class="skill-tag">HTML</span> <span class="skill-tag">CSS</span> 
-          <span class="skill-tag">JavaScript</span> <span class="skill-tag">Node.js</span> <span class="skill-tag">MongoDB</span>
+    <div class="bento-grid">
+      
+      <section class="card edu-card">
+        <h2>Education</h2>
+        <div style="margin-bottom: 25px;">
+          <h3>Institute of Aeronautical Engineering, Hyderabad</h3>
+          <span class="subtitle">B.Tech in Computer Science and Engineering | 2023 – 2027</span>
+          <p>Focusing on Core CS fundamentals, Data Structures, and Algorithmic problem solving.</p>
         </div>
-      </div>
-
-      <div class="card">
-        <h3>Deep Learning Internship | MSME (CITD)</h3>
-        <span class="details">May 2025</span>
-        <ul>
-          <li>Hands-on experience with Neural Networks, CNNs, and Backpropagation.</li>
-          <li>Built real-time applications and trained models using Python and TensorFlow.</li>
-        </ul>
-        <div class="skills-container">
-          <span class="skill-tag">Python</span> <span class="skill-tag">TensorFlow</span> 
-          <span class="skill-tag">Keras</span> <span class="skill-tag">NumPy</span> <span class="skill-tag">Matplotlib</span>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div>
+            <h3>Narayana Junior College</h3>
+            <span class="subtitle">Intermediate (MPC) | CGPA: 9.34</span>
+          </div>
+          <div>
+            <h3>Good Will High School</h3>
+            <span class="subtitle">SSC | CGPA: 10</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <h2>Projects</h2>
-      <div class="card">
-        <h3>iNotebook</h3>
-        <span class="details">React.js, Node.js, MongoDB, Express.js</span>
-        <p>A full-stack note-taking application featuring JWT authentication and secure MVC architecture for scalability.</p>
-      </div>
-      <div class="card">
-        <h3>Netflix Clone</h3>
-        <span class="details">HTML, CSS</span>
-        <p>A high-fidelity static clone of the Netflix homepage focusing on responsive grids and smooth user interface design.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Skills & Accomplishments</h2>
-      <div class="card">
-        <h3>Technical Expertise</h3>
-        <div class="skills-container" style="margin-top:15px;">
-          <span class="skill-tag">Python</span> <span class="skill-tag">Java</span> 
-          <span class="skill-tag">SQL</span> <span class="skill-tag">React</span> 
-          <span class="skill-tag">Git</span> <span class="skill-tag">Salesforce</span> 
-          <span class="skill-tag">DSA</span>
+      <section class="card" style="background: var(--primary-blue); color: white;">
+        <h2 style="color: white; opacity: 0.8;">Achievements</h2>
+        <div style="margin-bottom: 20px;">
+          <p style="color: white; font-weight: 800; font-size: 1.1rem;">Adobe Hackathon 2025</p>
+          <p style="color: white; opacity: 0.8; font-size: 0.85rem;">National Level Participant</p>
         </div>
-        <ul style="margin-top:20px;">
-          <li><strong>Adobe Hackathon 2025:</strong> National-level participant.</li>
-          <li><strong>Problem Solving:</strong> Solved 100+ problems on Leetcode and HackerRank.</li>
-          <li><strong>Certifications:</strong> Python Silver (4-Star) & SQL Bronze (1-Star).</li>
+        <ul style="color: white;">
+          <li style="color: white; font-size: 0.85rem;">100+ LeetCode Problems</li>
+          <li style="color: white; font-size: 0.85rem;">100+ HackerRank Problems</li>
+          <li style="color: white; font-size: 0.85rem;">Python Silver (4-Star)</li>
         </ul>
-      </div>
-    </section>
+      </section>
+
+      <section class="card exp-card">
+        <h2>Professional Experience</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+          <div>
+            <h3>Full Stack Intern</h3>
+            <span class="subtitle">Octacomm Technologies | May 2024</span>
+            <ul>
+              <li>Worked on "Patient-Centric Healthcare Appointment Manager".</li>
+              <li>Engineered responsive UI and integrated secure REST APIs.</li>
+              <li>Used MongoDB for scalable data storage and JWT for security.</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tag">Node.js</span> <span class="tag">React</span> <span class="tag">MongoDB</span>
+            </div>
+          </div>
+          <div>
+            <h3>Deep Learning Intern</h3>
+            <span class="subtitle">MSME (CITD) | May 2025</span>
+            <ul>
+              <li>Hands-on experience with Neural Networks, CNNs, and Backpropagation.</li>
+              <li>Built and trained models using TensorFlow for real-time applications.</li>
+              <li>Project-based learning under industry mentor guidance.</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tag">Python</span> <span class="tag">TensorFlow</span> <span class="tag">Keras</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Technical Stack</h2>
+        <div style="margin-bottom: 15px;">
+          <p style="font-weight: 700; color: var(--text-dark); font-size: 0.85rem; margin-bottom: 5px;">LANGUAGES</p>
+          <div class="tech-stack" style="margin-top: 0;">
+            <span class="tag">Python</span> <span class="tag">Java</span> <span class="tag">SQL</span> <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div>
+          <p style="font-weight: 700; color: var(--text-dark); font-size: 0.85rem; margin-bottom: 5px;">DEVELOPER TOOLS</p>
+          <div class="tech-stack" style="margin-top: 0;">
+            <span class="tag">Git</span> <span class="tag">VS Code</span><span class="tag">Vercel</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card edu-card">
+        <h2>Personal Projects</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <div>
+            <h3>iNotebook</h3>
+            <p>Full-stack MERN application for note management. Features include user authentication via JWT and full CRUD functionality.</p>
+          </div>
+          <div>
+            <h3>Netflix Clone</h3>
+            <p>Static responsive homepage recreation. Focused on high-fidelity CSS architecture, Grid, and Flexbox layouts.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
 
     <footer>
-      <p>&copy; 2026 Bibek Behera | Built with Passion</p>
+      <p>Bibek Behera | Software Developer | 2026</p>
     </footer>
   </div>
 
